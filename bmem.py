@@ -24,7 +24,8 @@ for i in range(nsprites):
     sprite_file_name = f"sprites/{i}.bmp541"
     if path.isfile(sprite_file_name):
         print(f"found {sprite_file_name}")
-        hexmem += open(sprite_file_name).read() + "\n"
+        with open(sprite_file_name) as sf:
+            hexmem += sf.read() + "\n"
     else:
         curr = "000000" if i == 0 else rcolor()
         for j in range(sprite_size):
